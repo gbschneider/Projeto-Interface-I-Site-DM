@@ -11,15 +11,15 @@ Sistema web para pedidos de farinha de trigo, que tem como principais clientes p
 
 Este projeto foi desenvolvido como atividade da disciplina de **Projeto de Interface**, com o objetivo de aplicar conceitos de UX/UI, prototipação e desenvolvimento web em um problema real: a falta de um canal digital organizado para pedidos de farinha de trigo entre distribuidoras e seus clientes (padarias e fábricas de pão).
 
-## ✨ Funcionalidades
+##  Funcionalidades
 
-- 🏠 **Página Inicial** — apresentação da distribuidora
-- 🔑 **Login** — acesso para empresas já cadastradas
-- 📝 **Cadastro** — registro de novas empresas clientes
-- 🌾 **Produtos** — catálogo de marcas de farinha disponíveis
-- 🛒 **Carrinho** — escolha de quantidade, entrega/retirada, forma de pagamento e cálculo automático do total (via JavaScript)
-- 📦 **Pedidos** — histórico de compras com status (entregue, em rota, aguardando confirmação)
-- 📞 **Contato** — informações da empresa e atalho direto para o WhatsApp
+- **Página Inicial** — apresentação da distribuidora
+- **Login** — acesso para empresas já cadastradas
+- **Cadastro** — registro de novas empresas clientes
+- **Produtos** — catálogo de marcas de farinha disponíveis
+- **Carrinho** — escolha de quantidade, entrega/retirada, forma de pagamento e cálculo automático do total (via JavaScript)
+- **Pedidos** — histórico de compras com status (entregue, em rota, aguardando confirmação)
+- **Contato** — informações da empresa e atalho direto para o WhatsApp
 
 ## 🎨 Design
 
@@ -49,7 +49,7 @@ A interface utiliza um efeito de vidro translúcido (*glassmorphism*), com `back
     └── produtos/          # Fotos das marcas de farinha
 ```
 
-## 🚀 Como executar localmente
+## Como executar localmente
 
 1. Clone este repositório
 2. Abra o arquivo `index.html` em qualquer navegador (ou use a extensão "Live Server" no VS Code)
