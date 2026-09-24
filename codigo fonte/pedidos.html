@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Pedidos | DM Distribuidora de Alimentos</title>
+  <meta name="description" content="Acompanhe o histórico e o status dos seus pedidos de farinha de trigo na DM Distribuidora de Alimentos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <img src="img/logo-dm.png" alt="Logo da DM Distribuidora de Alimentos">
+    </a>
+    <nav aria-label="Navegação principal">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-pill">Início</a></li>
+        <li><a href="produtos.html" class="nav-pill">Produtos</a></li>
+        <li><a href="pedidos.html" class="nav-pill ativo">Pedidos</a></li>
+        <li><a href="contato.html" class="nav-pill">Contato</a></li>
+        <li><a href="login.html" class="nav-pill">Login</a></li>
+      </ul>
+    </nav>
+    <div class="header-spacer" aria-hidden="true"></div>
+  </header>
+
+  <!-- ===================== PEDIDOS ===================== -->
+  <main>
+    <section class="hero-card-area" style="background-image: url('img/hero-farinha.jpg');">
+      <div class="hero-overlay"></div>
+
+      <div class="cartao" style="max-width: 720px; width: 100%;">
+        <h1 class="cartao-titulo">Pedidos</h1>
+        <hr class="cartao-linha">
+
+        <div class="tabela-wrapper">
+          <table class="tabela-dm">
+            <thead>
+              <tr>
+                <th>Pedido</th>
+                <th>Produto</th>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#1042</td>
+                <td>Farinha de Trigo TIPO 0000 x50</td>
+                <td>12/09, 09:40</td>
+                <td>R$ 4.900,00</td>
+                <td><span class="chip chip-entregue">Entregue</span></td>
+              </tr>
+              <tr>
+                <td>#1043</td>
+                <td>Farinha de Trigo INTEGRAL x10</td>
+                <td>22/09, 15:12</td>
+                <td>R$ 910,00</td>
+                <td><span class="chip chip-rota">Em rota</span></td>
+              </tr>
+              <tr>
+                <td>#1044</td>
+                <td>Farinha de Trigo EXTRA CLARA 0000 x35</td>
+                <td>29/09, 11:05</td>
+                <td>R$ 3.325,00</td>
+                <td><span class="chip chip-aguardando">Aguardando confirmação</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="text-align:center; margin-top: 22px;">
+          <a href="produtos.html" class="link-discreto">fazer um novo pedido</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="site-footer">
+    <p>DM DISTRIBUIDORA DE ALIMENTOS&nbsp; | &nbsp;Samambaia Sul - ADE conjunto 18 lote 32 - DF &nbsp; | &nbsp;(61) 99696-7474</p>
+  </footer>
+
+</body>
+</html>

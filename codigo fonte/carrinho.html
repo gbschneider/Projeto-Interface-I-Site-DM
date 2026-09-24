@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho | DM Distribuidora de Alimentos</title>
+  <meta name="description" content="Finalize seu pedido de farinha de trigo na DM Distribuidora de Alimentos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <img src="img/logo-dm.png" alt="Logo da DM Distribuidora de Alimentos">
+    </a>
+    <nav aria-label="Navegação principal">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-pill">Início</a></li>
+        <li><a href="produtos.html" class="nav-pill ativo">Produtos</a></li>
+        <li><a href="pedidos.html" class="nav-pill">Pedidos</a></li>
+        <li><a href="contato.html" class="nav-pill">Contato</a></li>
+        <li><a href="login.html" class="nav-pill">Login</a></li>
+      </ul>
+    </nav>
+    <div class="header-spacer" aria-hidden="true"></div>
+  </header>
+
+  <!-- ===================== CARRINHO ===================== -->
+  <main>
+    <section class="hero-card-area" style="background-image: url('img/hero-farinha.jpg');">
+      <div class="hero-overlay"></div>
+
+      <form class="cartao" style="max-width: 460px; width: 100%;" action="#" method="post">
+        <h1 class="cartao-titulo">Carrinho</h1>
+        <hr class="cartao-linha">
+
+        <div class="carrinho-item">
+          <div>
+            <p class="carrinho-item-label">Produto</p>
+            <p class="carrinho-item-nome" id="nome-produto">Farinha de Trigo</p>
+            <p class="carrinho-item-preco" id="preco-unitario">R$ 82,90 / saco</p>
+          </div>
+          <div class="quantidade-stepper">
+            <button type="button" class="qtd-btn" id="qtd-menos" aria-label="Diminuir quantidade">−</button>
+            <input type="number" id="quantidade" name="quantidade" class="qtd-input" value="1" min="1" max="1000" inputmode="numeric" aria-label="Quantidade de sacos (máximo 1000)">
+            <button type="button" class="qtd-btn" id="qtd-mais" aria-label="Aumentar quantidade">+</button>
+          </div>
+        </div>
+        <p class="aviso-limite" id="aviso-limite">Máximo de 1000 sacos por pedido.</p>
+        <a href="produtos.html" class="link-remover">remover</a>
+
+        <div class="campo-secao">
+          <label>Entrega</label>
+          <label class="opcao-radio">
+            <input type="radio" name="entrega" checked>
+            <span><strong>Entrega</strong> — receber no endereço cadastrado</span>
+          </label>
+          <label class="opcao-radio">
+            <input type="radio" name="entrega">
+            <span><strong>Retirada</strong> — buscar na loja</span>
+          </label>
+        </div>
+
+        <div class="campo-secao">
+          <label>Pagamento</label>
+          <label class="opcao-radio">
+            <input type="radio" name="pagamento" checked>
+            <span>Pix</span>
+          </label>
+          <label class="opcao-radio">
+            <input type="radio" name="pagamento">
+            <span>Boleto</span>
+          </label>
+          <label class="opcao-radio">
+            <input type="radio" name="pagamento">
+            <span>Cartão de crédito</span>
+          </label>
+        </div>
+
+        <div class="resumo-pedido">
+          <div class="resumo-linha"><span>Subtotal</span><span id="valor-subtotal">R$ 82,90</span></div>
+          <div class="resumo-linha"><span>Frete</span><span id="valor-frete">R$ 9,90</span></div>
+          <div class="resumo-linha resumo-total"><span>Total</span><span id="valor-total">R$ 92,80</span></div>
+        </div>
+
+        <button type="submit" class="botao botao-primario botao-bloco">Finalizar Pedido</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="site-footer">
+    <p>DM DISTRIBUIDORA DE ALIMENTOS&nbsp; | &nbsp;Samambaia Sul - ADE conjunto 18 lote 32 - DF &nbsp; | &nbsp;(61) 99696-7474</p>
+  </footer>
+
+  <script>
+    (function () {
+      const FRETE = 9.90;
+      const QTD_MAXIMA = 1000;
+
+      // Lê o produto e o preço vindos da página de Produtos pela URL
+      const params = new URLSearchParams(window.location.search);
+      const nomeProduto = params.get('produto') || 'Farinha de Trigo';
+      const precoUnitario = parseFloat(params.get('preco')) || 82.90;
+
+      const elNome = document.getElementById('nome-produto');
+      const elPrecoUnit = document.getElementById('preco-unitario');
+      const elQuantidade = document.getElementById('quantidade');
+      const elSubtotal = document.getElementById('valor-subtotal');
+      const elTotal = document.getElementById('valor-total');
+      const elAviso = document.getElementById('aviso-limite');
+      const btnMenos = document.getElementById('qtd-menos');
+      const btnMais = document.getElementById('qtd-mais');
+
+      function formatarReal(valor) {
+        return 'R$ ' + valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      elNome.textContent = nomeProduto;
+      elPrecoUnit.textContent = formatarReal(precoUnitario) + ' / saco';
+
+      function quantidadeAtual() {
+        let qtd = parseInt(elQuantidade.value, 10);
+        if (isNaN(qtd) || qtd < 1) qtd = 1;
+        if (qtd > QTD_MAXIMA) qtd = QTD_MAXIMA;
+        return qtd;
+      }
+
+      function atualizarResumo() {
+        const qtd = quantidadeAtual();
+        elQuantidade.value = qtd;
+        elAviso.classList.toggle('visivel', qtd >= QTD_MAXIMA);
+
+        const subtotal = precoUnitario * qtd;
+        const total = subtotal + FRETE;
+
+        elSubtotal.textContent = formatarReal(subtotal);
+        elTotal.textContent = formatarReal(total);
+      }
+
+      btnMenos.addEventListener('click', function () {
+        elQuantidade.value = quantidadeAtual() - 1;
+        atualizarResumo();
+      });
+
+      btnMais.addEventListener('click', function () {
+        elQuantidade.value = quantidadeAtual() + 1;
+        atualizarResumo();
+      });
+
+      elQuantidade.addEventListener('input', atualizarResumo);
+      elQuantidade.addEventListener('blur', atualizarResumo);
+
+      atualizarResumo();
+    })();
+  </script>
+
+</body>
+</html>

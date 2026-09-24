@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro | DM Distribuidora de Alimentos</title>
+  <meta name="description" content="Cadastre sua padaria ou fábrica de pão na DM Distribuidora de Alimentos e comece a fazer pedidos de farinha de trigo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <img src="img/logo-dm.png" alt="Logo da DM Distribuidora de Alimentos">
+    </a>
+    <nav aria-label="Navegação principal">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-pill">Início</a></li>
+        <li><a href="produtos.html" class="nav-pill">Produtos</a></li>
+        <li><a href="pedidos.html" class="nav-pill">Pedidos</a></li>
+        <li><a href="contato.html" class="nav-pill">Contato</a></li>
+        <li><a href="login.html" class="nav-pill ativo">Login</a></li>
+      </ul>
+    </nav>
+    <div class="header-spacer" aria-hidden="true"></div>
+  </header>
+
+  <!-- ===================== CADASTRO ===================== -->
+  <main>
+    <section class="hero-card-area" style="background-image: url('img/hero-farinha.jpg');">
+      <div class="hero-overlay"></div>
+
+      <form class="cartao" style="max-width: 460px; width: 100%;" action="#" method="post">
+        <h1 class="cartao-titulo">Cadastro da Empresa</h1>
+        <hr class="cartao-linha">
+
+        <div class="campo">
+          <label for="cnpj">CNPJ</label>
+          <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+        </div>
+
+        <div class="campo">
+          <label for="nome-empresa">Nome da empresa</label>
+          <input type="text" id="nome-empresa" name="nome-empresa" placeholder="ex: Padaria Pão Dourado" required>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="contato@suaempresa.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+        </div>
+
+        <div class="campo">
+          <label for="endereco">Endereço</label>
+          <input type="text" id="endereco" name="endereco" placeholder="rua, número, cidade" required>
+        </div>
+
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="botao botao-primario botao-bloco">Cadastrar</button>
+
+        <p style="text-align:center; margin-top: 18px;">
+          <a href="login.html" class="link-discreto">já tem conta? faça login</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="site-footer">
+    <p>DM DISTRIBUIDORA DE ALIMENTOS&nbsp; | &nbsp;Samambaia Sul - ADE conjunto 18 lote 32 - DF &nbsp; | &nbsp;(61) 99696-7474</p>
+  </footer>
+
+</body>
+</html>
